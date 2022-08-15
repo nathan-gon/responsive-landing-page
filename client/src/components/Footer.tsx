@@ -1,21 +1,14 @@
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
-import useAos from "../hook/useAos";
-import { useEffect } from "react";
 
-export default function Main () {
+export default function Footer () {
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-  useEffect(() => {
-    useAos();
-  });
-
   const styles = {
-    fontSize: downSm ? '30px' : '90px',
+    fontSize: downSm ? '30px' : '70px',
     textAlign: 'center',
     maxHeight: '90px',
-    fontWeight: 700,
+    fontWeight: '1000',
     textTransform: 'uppercase'
   };
 
@@ -26,7 +19,7 @@ export default function Main () {
             justifyContent='center'
             height={downSm ? '500px' : '650px'}
             container
-            sx={{ backgroundColor: '#232931', color: 'white' }}
+            sx={{ backgroundColor: 'white', color: 'black' }}
         >
             <Grid
                 data-aos-delay='100' data-aos='fade-up'
@@ -34,14 +27,14 @@ export default function Main () {
                 <Typography
                     sx={styles}
                 >
-                    Share your
+                    Have a own
                 </Typography>
                 <Grid data-aos-delay='200' data-aos='fade-up'
                     item xs={12}>
                     <Typography
                         sx={styles}
                     >
-                        Own recipes
+                        recipes?
                     </Typography>
                 </Grid>
                 <Grid data-aos-delay='300' data-aos='fade-up'
@@ -49,16 +42,18 @@ export default function Main () {
                     <Typography
                         sx={styles}
                     >
-                        of
+                        Share and get
                     </Typography>
                 </Grid>
                 <Grid data-aos-delay='400' data-aos='fade-up'
                     item xs={12}>
+
                     <Typography
                         sx={styles}
-                        color='crimson'
+                        color='primary'
+                        textAlign='justify'
                     >
-                        korean food  <LocalFireDepartmentIcon fontSize='inherit' />
+                        Reward!
                     </Typography>
                 </Grid>
             </Grid>

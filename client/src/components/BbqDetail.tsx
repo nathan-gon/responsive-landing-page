@@ -1,33 +1,56 @@
-import { Grid } from "@mui/material";
-import koreanbbq from '../images/kroeanbbq.jpg'
+import { createTheme, Grid, useMediaQuery } from "@mui/material";
+import styled from "@emotion/styled";
+import koreanbbq from '../images/kroeanbbq.jpg';
+import BbqbText from "./BbqText";
 
+const StyledImge = styled.img({
+  '&:hover': {
+    transform: 'scale(1.1,1.1)',
+    opacity: '1.3'
 
+  },
+  transition: '.7s',
+  height: '100%',
+  width: '100%'
+});
 
+export default function BbqDetail () {
+  const theme = createTheme();
+  const downSm = useMediaQuery(theme.breakpoints.down('sm'));
 
-export default function BbqDetail() {
+  const flexStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  };
 
-
-    return (
-        <Grid display='flex'
-            alignItems='center'
-            justifyContent='center'
-            // height={downSm ? '500px' : '700px'}
+  return (
+        <Grid
             height='550px'
             container
+            sx={{ ...flexStyle, backgroundColor: '#EBE2DF', overflow: 'hidden' }}
         >
-            <Grid item xs={6} >
+            <Grid
+                height={downSm ? '275px' : 'inherit'}
+                sx={{ ...flexStyle, backgroundColor: 'crimson' }}
+                item xs={12} sm={6} >
+                <BbqbText />
             </Grid>
+
             <Grid item
-                xs={6}
-                height='inherit'
+                xs={12} sm={6}
+                height={downSm ? '275px' : 'inherit'}
                 sx={{
-                    backgroundImage: `url(${koreanbbq})`,
-                    backgroundSize: 'cover'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden'
                 }}
             >
+                <StyledImge src={koreanbbq} alt='koreanbbq' />
+
             </Grid>
+
         </Grid >
-    )
-
-
+  );
 }
